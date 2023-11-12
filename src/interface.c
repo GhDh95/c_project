@@ -4460,6 +4460,9 @@ create_enterPasswordPopupWindow (void)
   gtk_widget_show (label263);
   gtk_box_pack_start (GTK_BOX (hbox81), label263, FALSE, FALSE, 0);
 
+  g_signal_connect ((gpointer) passwordEntry_enterPassword, "changed",
+                    G_CALLBACK (on_passwordEntry_enterPassword_changed),
+                    NULL);
   g_signal_connect ((gpointer) showPasswordButton_enterPassword, "pressed",
                     G_CALLBACK (on_showPasswordButton_enterPassword_pressed),
                     NULL);

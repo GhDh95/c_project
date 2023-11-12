@@ -262,3 +262,5 @@ void on_mainMenuButton_editEts_enter (GtkWidget *button, gpointer user_data);
 void on_mainMenuButton_editEts_leave (GtkWidget *button, gpointer user_data);
 
 void on_cancelButton_leaveEditEts_clicked (GtkWidget *button, gpointer user_data);
+
+

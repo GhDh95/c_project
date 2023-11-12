@@ -10887,6 +10887,7 @@ Les modifications non enregistrées seront perdues.</property>
 	  <property name="has_frame">True</property>
 	  <property name="invisible_char">•</property>
 	  <property name="activates_default">False</property>
+	  <signal name="changed" handler="on_passwordEntry_enterPassword_changed" last_modification_time="Sun, 12 Nov 2023 23:09:17 GMT"/>
 	</widget>
 	<packing>
 	  <property name="x">70</property>
