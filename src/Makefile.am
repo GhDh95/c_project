@@ -13,7 +13,9 @@ project_final_SOURCES = \
 	interface.c interface.h \
 	callbacks.c callbacks.h \
 	functions_ets.c functions_ets.h \
-	functions_user.c functions_user.h
+	functions_user.c functions_user.h \
+	functions_don.c functions_don.h \
+	functions_request.c functions_request.h
 
 project_final_LDADD = @PACKAGE_LIBS@ $(INTLLIBS)
 

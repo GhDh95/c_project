@@ -24,13 +24,13 @@ typedef struct User{
 
 void add_user(user data);
 void edit_user(user data); 
+void delete_user(char cin[LENGTH]);
 user * get_user_input(user *u); 
 int field_empty(char *str); 
 int is_str_numeric(char *str);
 int id_unique(char* id); 
 void display_all_users();  
-void display_filtered_users();
-void delete_user(); 
+void display_filtered_users(); 
 void show_stats(); 
 
 //check authentification credentials 

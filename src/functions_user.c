@@ -1,6 +1,6 @@
 #include "functions_user.h"
 
-const char *user_path = "/home/arous/Desktop/studium/copie_interface/project_final/src/user_data.txt";
+const char *user_path = "/home/arous/Desktop/studium/copie_interface/project_final/data/user_data.txt";
 
 void add_user(user data)
 {
@@ -31,13 +31,29 @@ void edit_user(user data)
 	rename("temp.txt", user_path);
 }
 
+void delete_user(char cin[LENGTH])
+{
+	user file;
+	FILE *f = fopen (user_path, "r");
+	FILE *f2 = fopen ("temp.txt", "w");
+	if (f != NULL && f2 != NULL)
+	{
+		while (fscanf (f, "%s %s %s %d %s %s %s %s %s %[^\n]\n", file.surname, file.name, file.cin, &file.sex, file.est, file.role, file.password, file.tel, file.answer, file.question) != EOF)
+			if (strcmp (cin, file.cin) != 0)
+				fprintf (f2, "%s %s %s %d %s %s %s %s %s %s\n", file.surname, file.name, file.cin, file.sex, file.est, file.role, file.password, file.tel, file.answer, file.question);		
+	}
+	fclose (f);
+	fclose (f2);
+	remove (user_path);
+	rename ("temp.txt", user_path);
+}
+
 user * get_user_input(user *u); 
 int field_empty(char *str); 
 int is_str_numeric(char *str);
 int id_unique(char* id); 
 void display_all_users();  
-void display_filtered_users(); 
-void delete_user(); 
+void display_filtered_users();  
 void show_stats(); 
 
 
@@ -47,20 +63,22 @@ int authenticate(char cin[LENGTH], char password[LENGTH], char role[LENGTH], cha
 	int check = 0;
 	char cin_file[LENGTH];
 	char password_file[LENGTH];
+	char role_file[LENGTH];
 	FILE *f = fopen(user_path, "r");
 	if(f != NULL)
 	{
-		while(fscanf(f, "%*s %*s %s %*d %s %*s %s %*s %*S %*[^\n]\n", cin_file, role, password_file) != EOF && check == 0)
+		while(fscanf(f, "%*s %*s %s %*d %*s %s %s %*s %*S %*[^\n]\n", cin_file, role_file, password_file) != EOF && check == 0)
 			if(strcmp(cin, cin_file) == 0 && strcmp(password, password_file) == 0)
 			{
-				strcpy(task_status, "authentification successful.");
+				strcpy(task_status, "Authentification réussi");
+				strcpy (role, role_file);
 				check = 1;
 			}
 		if(check == 0)
-			strcpy(task_status, "identification invalide.");
+			strcpy(task_status, "Identification invalide.");
 		fclose(f);
 	}
 	else
-		strcpy(task_status, "couldn't open user file.");
+		strcpy(task_status, "Problème d'accés vers la base de données.");
 	return check;
 }

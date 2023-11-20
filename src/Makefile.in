@@ -101,7 +101,8 @@ am__installdirs = "$(DESTDIR)$(bindir)"
 PROGRAMS = $(bin_PROGRAMS)
 am_project_final_OBJECTS = main.$(OBJEXT) support.$(OBJEXT) \
 	interface.$(OBJEXT) callbacks.$(OBJEXT) \
-	functions_ets.$(OBJEXT) functions_user.$(OBJEXT)
+	functions_ets.$(OBJEXT) functions_user.$(OBJEXT) \
+	functions_don.$(OBJEXT) functions_request.$(OBJEXT)
 project_final_OBJECTS = $(am_project_final_OBJECTS)
 am__DEPENDENCIES_1 =
 project_final_DEPENDENCIES = $(am__DEPENDENCIES_1)
@@ -284,7 +285,9 @@ project_final_SOURCES = \
 	interface.c interface.h \
 	callbacks.c callbacks.h \
 	functions_ets.c functions_ets.h \
-	functions_user.c functions_user.h
+	functions_user.c functions_user.h \
+	functions_don.c functions_don.h \
+	functions_request.c functions_request.h
 
 project_final_LDADD = @PACKAGE_LIBS@ $(INTLLIBS)
 all: all-am
@@ -374,7 +377,9 @@ distclean-compile:
 	-rm -f *.tab.c
 
 @AMDEP_TRUE@@am__include@ @am__quote@./$(DEPDIR)/callbacks.Po@am__quote@
+@AMDEP_TRUE@@am__include@ @am__quote@./$(DEPDIR)/functions_don.Po@am__quote@
 @AMDEP_TRUE@@am__include@ @am__quote@./$(DEPDIR)/functions_ets.Po@am__quote@
+@AMDEP_TRUE@@am__include@ @am__quote@./$(DEPDIR)/functions_request.Po@am__quote@
 @AMDEP_TRUE@@am__include@ @am__quote@./$(DEPDIR)/functions_user.Po@am__quote@
 @AMDEP_TRUE@@am__include@ @am__quote@./$(DEPDIR)/interface.Po@am__quote@
 @AMDEP_TRUE@@am__include@ @am__quote@./$(DEPDIR)/main.Po@am__quote@

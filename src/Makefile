@@ -101,7 +101,8 @@ am__installdirs = "$(DESTDIR)$(bindir)"
 PROGRAMS = $(bin_PROGRAMS)
 am_project_final_OBJECTS = main.$(OBJEXT) support.$(OBJEXT) \
 	interface.$(OBJEXT) callbacks.$(OBJEXT) \
-	functions_ets.$(OBJEXT) functions_user.$(OBJEXT)
+	functions_ets.$(OBJEXT) functions_user.$(OBJEXT) \
+	functions_don.$(OBJEXT) functions_request.$(OBJEXT)
 project_final_OBJECTS = $(am_project_final_OBJECTS)
 am__DEPENDENCIES_1 =
 project_final_DEPENDENCIES = $(am__DEPENDENCIES_1)
@@ -284,7 +285,9 @@ project_final_SOURCES = \
 	interface.c interface.h \
 	callbacks.c callbacks.h \
 	functions_ets.c functions_ets.h \
-	functions_user.c functions_user.h
+	functions_user.c functions_user.h \
+	functions_don.c functions_don.h \
+	functions_request.c functions_request.h
 
 project_final_LDADD = -lgtk-x11-2.0 -lgdk-x11-2.0 -lpangocairo-1.0 -latk-1.0 -lcairo -lgdk_pixbuf-2.0 -lgio-2.0 -lpangoft2-1.0 -lpango-1.0 -lgobject-2.0 -lglib-2.0 -lfontconfig -lfreetype $(INTLLIBS)
 all: all-am
@@ -374,7 +377,9 @@ distclean-compile:
 	-rm -f *.tab.c
 
 include ./$(DEPDIR)/callbacks.Po
+include ./$(DEPDIR)/functions_don.Po
 include ./$(DEPDIR)/functions_ets.Po
+include ./$(DEPDIR)/functions_request.Po
 include ./$(DEPDIR)/functions_user.Po
 include ./$(DEPDIR)/interface.Po
 include ./$(DEPDIR)/main.Po
